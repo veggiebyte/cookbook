@@ -50,10 +50,19 @@
                 </div>
 
                 <div class="show-buttons">
-                    <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit" class="edit-btn">Edit</a>
-                    <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="delete-btn">Delete</button>
-                    </form>
+    <!-- Wrap edit button and delete form in a div for layout flexibility -->
+    <div class="action-group">
+        <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit" class="edit-btn">Edit</a>
+        
+        <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="delete-btn">Delete</button>
+        </form>
+    
+    <a href="/users/<%= user._id %>/foods" style="text-decoration: underline;">
+        &leftarrow;Back to My Pantry
+    </a>
+
+                 
                 </div>
             </div>
         </div>
