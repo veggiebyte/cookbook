@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Community</title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <div class="all-apps-body">
+    <div class="all-apps-header">
+      <h1>Our Vegan Baking Community</h1>
+    </div>
+    <ul>
+      <% users.forEach((communityUser) => { %>
+        <a href="/users/<%= communityUser._id %>">
+          <li><%= communityUser.username %>'s Pantry (<%= communityUser.pantry.length %> items)</li>
+        </a>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>
