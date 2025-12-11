@@ -49,21 +49,20 @@
                                                 <% } %>
                 </div>
 
-                <div class="show-buttons">
-
-                    <div class="action-group">
-        <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit" class="edit-btn">Edit</a>
-        
-        <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="POST">
-            <button type="submit" class="delete-btn">Delete</button>
-        </form>
+<div class="show-buttons">
+    <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit" class="edit-btn">Edit</a>
     
-    <a href="/users/<%= user._id %>/foods" style="text-decoration: underline;">
-        &leftarrow;Back to My Pantry
-    </a>
+    <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="delete-btn">Delete</button>
+    </form>
+</div>
 
-                 
-                </div>
+<!-- Put Back link OUTSIDE show-buttons so it doesn't get button styling -->
+<div style="text-align: center; margin-top: 20px;">
+    <a href="/users/<%= user._id %>/foods" style="color: white; text-decoration: underline;">
+        ← Back to My Pantry
+    </a>
+</div>
             </div>
         </div>
 </body>
