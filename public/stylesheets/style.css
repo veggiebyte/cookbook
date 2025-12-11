@@ -26,13 +26,14 @@ body:not(.index-body) {
   min-height: 100vh;
   width: 100vw;
   color: white;
+  overflow: hidden;
 }
 
 .main-header {
   font-weight: bold;
   color: white;
-  font-size: 5.6em;
-  margin: -160px 20px 0 20px;
+  font-size: 4em;
+  margin: -100px 20px 0 20px;
 }
 
 .subheader {
@@ -46,6 +47,7 @@ body:not(.index-body) {
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  overflow: hidden;
 }
 
 .auth-links {
