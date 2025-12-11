@@ -1,23 +1,22 @@
 const mongoose = require('mongoose');
 
-const applicationSchema = new mongoose.Schema({
-  company: {
+const foodSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true,
   },
-  title: {
+  category: {
     type: String,
-    required: true,
+    enum: ['flour', 'sweetener', 'fat', 'egg-replacer', 'leavening', 'flavoring', 'decoration', 'other'],
+  },
+  brand: {
+    type: String,
+  },
+  quantity: {
+    type: String,
   },
   notes: {
     type: String,
-  },
-  postingLink: {
-    type: String,
-  },
-  status: {
-    type: String,
-    enum: ['interested', 'applied', 'interviewing', 'rejected', 'accepted'],
   },
 });
 
@@ -31,7 +30,7 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
 
-  applications: [applicationSchema], 
+  pantry: [foodSchema],
 });
 
 const User = mongoose.model('User', userSchema);
