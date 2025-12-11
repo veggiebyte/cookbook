@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/stylesheets/style.css" />
 
-  <title>Editing <%= food.name %></title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <title>Editing <%= food.name %>
+    </title>
 
 </head>
+
 <body>
-  <%- include('../partials/_navbar.ejs') %>
-  <div class="edit-body">
-  <h1>Edit <%= food.name %></h1>
-  <form
-    action="/users/<%= user._id %>/foods/<%= food._id %>?_method=PUT"
-    method="POST"
-  >
-    <label for="name">Ingredient Name:</label>
-    <input
-      type="text"
-      name="name"
-      id="name"
-      value="<%= food.name %>"
-      required
-    >
-    
-    <label for="category">Category:</label>
-    <select id="category" name="category">
-      <option value="">Select a category</option>
-      <option value="flour" <%= food.category === "flour" ? "selected" : "" %>>Flour</option>
-      <option value="sweetener" <%= food.category === "sweetener" ? "selected" : "" %>>Sweetener</option>
-      <option value="fat" <%= food.category === "fat" ? "selected" : "" %>>Fat/Oil</option>
-      <option value="egg-replacer" <%= food.category === "egg-replacer" ? "selected" : "" %>>Egg Replacer</option>
-      <option value="leavening" <%= food.category === "leavening" ? "selected" : "" %>>Leavening Agent</option>
-      <option value="flavoring" <%= food.category === "flavoring" ? "selected" : "" %>>Flavoring/Extract</option>
-      <option value="decoration" <%= food.category === "decoration" ? "selected" : "" %>>Decoration</option>
-      <option value="other" <%= food.category === "other" ? "selected" : "" %>>Other</option>
-    </select>
+    <%- include('../partials/_navbar.ejs') %>
+        <div class="edit-body">
+            <h1>Edit <%= food.name %>
+            </h1>
+            <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=PUT" method="POST">
+                <label for="name">Ingredient Name:</label>
+                <input type="text" name="name" id="name" value="<%= food.name %>" required>
 
-    <label for="brand">Brand:</label>
-    <input type="text" name="brand" id="brand" value="<%= food.brand || '' %>">
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="">Select a category</option>
+                    <option value="flour" <%=food.category==="flour" ? "selected" : "" %>>Flour</option>
+                    <option value="sweetener" <%=food.category==="sweetener" ? "selected" : "" %>>Sweetener</option>
+                    <option value="fat" <%=food.category==="fat" ? "selected" : "" %>>Fat/Oil</option>
+                    <option value="egg-replacer" <%=food.category==="egg-replacer" ? "selected" : "" %>>Egg Replacer
+                    </option>
+                    <option value="leavening" <%=food.category==="leavening" ? "selected" : "" %>>Leavening Agent
+                    </option>
+                    <option value="flavoring" <%=food.category==="flavoring" ? "selected" : "" %>>Flavoring/Extract
+                    </option>
+                    <option value="decoration" <%=food.category==="decoration" ? "selected" : "" %>>Decoration</option>
+                    <option value="other" <%=food.category==="other" ? "selected" : "" %>>Other</option>
+                </select>
 
-    <label for="quantity">Quantity:</label>
-    <input type="text" name="quantity" id="quantity" value="<%= food.quantity || '' %>">
+                <label for="brand">Brand:</label>
+                <input type="text" name="brand" id="brand" value="<%= food.brand || '' %>">
 
-    <label for="notes">Notes:</label>
-    <textarea name="notes" id="notes"><%= food.notes || '' %></textarea>
+                <label for="quantity">Quantity:</label>
+                <input type="text" name="quantity" id="quantity" value="<%= food.quantity || '' %>">
 
-    <button type="submit">Update Ingredient</button>
-  </form>
-  </div>
+                <label for="quantity">Quantity:</label>
+                <input type="text" name="quantity" id="quantity" placeholder="e.g., 2 bags, 1 bottle" />
+
+                <label for="purchaseLink">Where to Buy (link):</label>
+                <input type="url" name="purchaseLink" id="purchaseLink" placeholder="https://..." />
+
+                <label for="notes">Notes:</label>
+
+                <label for="notes">Notes:</label>
+                <textarea name="notes" id="notes"><%= food.notes || '' %></textarea>
+
+                <button type="submit">Update Ingredient</button>
+            </form>
+        </div>
 </body>
+
 </html>

@@ -12,37 +12,45 @@
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Add a New Ingredient</h1>
-    <div class="new-body">
-        <form action="/users/<%= user._id %>/foods" method="POST">
-            <label for="name">Ingredient Name:</label>
-            <input type="text" name="name" id="name" required />
+        <h1>Add a New Ingredient</h1>
+        <div class="new-body">
+            <form action="/users/<%= user._id %>/foods" method="POST">
+                <label for="name">Ingredient Name:</label>
+                <input type="text" name="name" id="name" required />
 
-            <label for="category">Category:</label>
-            <select id="category" name="category">
-                <option value="">Select a category</option>
-                <option value="flour">Flour</option>
-                <option value="sweetener">Sweetener</option>
-                <option value="fat">Fat/Oil</option>
-                <option value="egg-replacer">Egg Replacer</option>
-                <option value="leavening">Leavening Agent</option>
-                <option value="flavoring">Flavoring/Extract</option>
-                <option value="decoration">Decoration</option>
-                <option value="other">Other</option>
-            </select>
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="">Select a category</option>
+                    <option value="flour">Flour</option>
+                    <option value="sweetener">Sweetener</option>
+                    <option value="fat">Fat/Oil</option>
+                    <option value="egg-replacer">Egg Replacer</option>
+                    <option value="leavening">Leavening Agent</option>
+                    <option value="flavoring">Flavoring/Extract</option>
+                    <option value="decoration">Decoration</option>
+                    <option value="other">Other</option>
+                </select>
 
-            <label for="brand">Brand:</label>
-            <input type="text" name="brand" id="brand" />
+                <label for="brand">Brand:</label>
+                <input type="text" name="brand" id="brand" />
 
-            <label for="quantity">Quantity:</label>
-            <input type="text" name="quantity" id="quantity" placeholder="e.g., 2 bags, 1 bottle" />
+                <label for="quantity">Quantity:</label>
+                <input type="text" name="quantity" id="quantity" placeholder="e.g., 2 bags, 1 bottle" />
 
-            <label for="notes">Notes:</label>
-            <textarea name="notes" id="notes" placeholder="Any additional info..."></textarea>
+                <label for="quantity">Quantity:</label>
+                <input type="text" name="quantity" id="quantity" placeholder="e.g., 2 bags, 1 bottle" />
 
-            <button type="submit">Add to Pantry</button>
-        </form>
-    </div>
+                <label for="purchaseLink">Where to Buy (link):</label>
+                <input type="url" name="purchaseLink" id="purchaseLink" placeholder="https://..." />
+
+                <label for="notes">Notes:</label>
+
+                <label for="notes">Notes:</label>
+                <textarea name="notes" id="notes" placeholder="Any additional info..."></textarea>
+
+                <button type="submit">Add to Pantry</button>
+            </form>
+        </div>
 
 </body>
 

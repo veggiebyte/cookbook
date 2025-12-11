@@ -15,6 +15,9 @@ const foodSchema = new mongoose.Schema({
   quantity: {
     type: String,
   },
+  purchaseLink: { 
+    type: String,
+  },
   notes: {
     type: String,
   },
