@@ -4,56 +4,57 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="/stylesheets/show.css" />
-
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>
         <%= food.name %>
     </title>
-
 </head>
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-        <div class="show-body">
-            <div class="show-header">
-                <h1>
+        <div class="inner-header"></div>
+        <div class="all-foods-body">
+            <div class="content-box">
+                <h1 style="color: white; text-align: center; margin-bottom: 30px;">
                     <%= food.name %>
                         <% if (food.brand) { %> - <%= food.brand %>
                                 <% } %>
                 </h1>
-                <div class="show-sidebar">
-                    <div class="show-actions">
-                        <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">
-                            Edit Item
-                        </a>
-                        <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="POST">
-                            <button type="submit">Delete Item</button>
-                        </form>
-                    </div>
+
+                <div class="show-details">
                     <% if (food.category) { %>
-                        <p>Category: <%= food.category %>
+                        <p><strong>Category:</strong>
+                            <%= food.category %>
                         </p>
                         <% } %>
+
                             <% if (food.quantity) { %>
-                                <p>Quantity: <%= food.quantity %>
+                                <p><strong>Quantity:</strong>
+                                    <%= food.quantity %>
                                 </p>
                                 <% } %>
-                </div>
-            </div>
-            <div class="show-notes-container">
-                <% if (food.purchaseLink) { %>
-                    <a href="<%= food.purchaseLink %>" target="_blank">Where to Buy This</a>
-                    <% } %>
 
-                        <% if (food.notes) { %>
-                            <div class="show-notes">
-                                <h2>Notes:</h2>
-                                <p>
-                                    <%= food.notes %>
-                                </p>
-                            </div>
-                            <% } %>
+                                    <% if (food.notes) { %>
+                                        <p><strong>Notes:</strong>
+                                            <%= food.notes %>
+                                        </p>
+                                        <% } %>
+
+                                            <% if (food.purchaseLink) { %>
+                                                <p><strong>Where to Buy:</strong> <a href="<%= food.purchaseLink %>"
+                                                        target="_blank"
+                                                        style="color: #0ec9c9; text-decoration: underline;">
+                                                        <%= food.purchaseLink %>
+                                                    </a></p>
+                                                <% } %>
+                </div>
+
+                <div class="show-buttons">
+                    <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit" class="edit-btn">Edit</a>
+                    <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </div>
             </div>
         </div>
 </body>

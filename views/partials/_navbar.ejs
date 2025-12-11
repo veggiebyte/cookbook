@@ -3,19 +3,17 @@
 <nav>
   <% if(user) { %>
   <div class="navbar">
-    <h1 id="nav-header">The Vegan Sprinkle Pantry</h1>
     <div class="nav-links">
-      <a class="authlink" href="/users/<%=user._id%>/foods">My Pantry</a>
-      <a class="authlink" href="/users">Community</a>
-      <a class="authlink" href="/auth/sign-out">Sign Out</a>
+      <a class="nav-button" href="/users/<%=user._id%>/foods">My Pantry</a>
+      <a class="nav-button" href="/users">Community</a>
+      <a class="nav-button signout-button" href="/auth/sign-out">Sign Out</a>
     </div>
   </div>
   <% } else { %>
   <div class="navbar">
-    <h1 id="nav-header">The Vegan Sprinkle Pantry</h1>
     <div class="nav-links">
-      <a class="authlink" href="/auth/sign-in">Sign In</a>
-      <a class="authlink" href="/auth/sign-up">Sign Up</a>
+      <a class="nav-button signin-button" href="/auth/sign-in">Sign In</a>
+      <a class="nav-button signup-button" href="/auth/sign-up">Sign Up</a>
     </div>
   </div>
   <% } %>

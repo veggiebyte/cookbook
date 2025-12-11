@@ -8,28 +8,32 @@
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <div class="all-apps-body">
-    <div class="all-apps-header">
-      <h1><%= pantryOwner.username %>'s Vegan Baking Pantry</h1>
+  <div class="inner-header"></div>
+  
+  <div class="all-foods-body">
+    <div class="content-box">
+      <h1 style="color: white; text-align: center; margin-bottom: 30px;"><%= pantryOwner.username %>'s Vegan Baking Pantry</h1>
+      
+      <% if (pantry.length === 0) { %>
+        <p style="color: white; text-align: center;">This pantry is empty!</p>
+      <% } else { %>
+        <ul>
+          <% pantry.forEach((food) => { %>
+            <a href="#">
+              <li>
+                <strong><%= food.name %></strong>
+                <% if (food.brand) { %> - <%= food.brand %><% } %>
+                <% if (food.category) { %> (<%= food.category %>)<% } %>
+              </li>
+            </a>
+          <% }) %>
+        </ul>
+      <% } %>
+      
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="/users" style="color: white; text-decoration: underline;">← Back to Community</a>
+      </div>
     </div>
-    <% if (pantry.length === 0) { %>
-      <p>This pantry is empty!</p>
-    <% } else { %>
-      <ul>
-        <% pantry.forEach((food) => { %>
-          <li>
-            <strong><%= food.name %></strong>
-            <% if (food.brand) { %> - <%= food.brand %><% } %>
-            <% if (food.category) { %> (<%= food.category %>)<% } %>
-            <% if (food.purchaseLink) { %>
-              <br><a href="<%= food.purchaseLink %>" target="_blank">Where to buy</a>
-            <% } %>
-          </li>
-        <% }) %>
-      </ul>
-    <% } %>
-    <br>
-    <a href="/users">← Back to Community</a>
   </div>
 </body>
 </html>

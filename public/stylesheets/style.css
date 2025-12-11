@@ -9,10 +9,20 @@ body {
   background-color: #9ac2ef;
 }
 
+body:not(.index-body) {
+  background-color: #fde4ec;
+  background-image: url('/images/sprinkle-bg.png');
+  background-repeat: repeat;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
 .index-body {
-  background-image: url('https://img.freepik.com/free-photo/rocket-taking-off-boost-symbol-ai-generated-image_268835-6577.jpg');
+  background-image: url('/images/home_bgd.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   min-height: 100vh;
   width: 100vw;
   color: white;
@@ -87,6 +97,22 @@ body {
   height: 100%;
 }
 
+.inner-header {
+  width: 100%;
+  background-image: url('/images/inner-header.png');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 0;
+  padding-bottom: 26.9%;
+  margin: 0;
+}
+
+nav {
+  position: relative;
+  z-index: 100;
+}
+
 h1 {
   color: #1c2e5b;
 }
@@ -94,37 +120,61 @@ h1 {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  width: 20em;
-  height: 50%;
-  background-color: #f6e7e7;
-  padding: 30px 40px 20px 40px;
+  width: 100%;
+  max-width: 450px;
+  background-color: #ffe6f0;
+  padding: 30px 40px;
   border-radius: 20px;
   color: #4b598e;
   font-weight: bold;
+  border: 4px solid #ff7bac;
+  margin: 0 auto;
 }
 
-input {
+form label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+input,
+textarea,
+select {
   border: 1px solid rgb(182, 182, 182);
-  padding: 8px;
+  padding: 10px;
   border-radius: 10px;
+  margin-bottom: 15px;
 }
 
-button {
-  padding: 10px;
-  background-color: #ce4866;
+form button {
+  padding: 12px;
+  background-color: #ff7bac;
   color: white;
   border-radius: 30px;
   border: none;
-  margin: 15px 0;
+  margin-top: 20px;
   font-size: 1.1em;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #ff5a95;
 }
 
 .all-foods-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 30px 20px;
+}
+
+.content-box {
+  background-color: #0ec9c9;
+  border-radius: 30px;
+  border: 10px solid #ff7bac;
+  padding: 40px;
+  max-width: 800px;
+  width: 90%;
+  margin-top: 20px;
 }
 
 .all-foods-header {
@@ -132,79 +182,117 @@ button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  width: 90%;
+  margin-bottom: 30px;
+}
+
+.all-foods-header h1 {
+  color: white;
+  margin: 0;
 }
 
 .add-app-link {
-  padding: 10px;
-  background-color: #ce4866;
+  padding: 12px 30px;
+  background-color: #ff7bac;
   color: white;
   border-radius: 30px;
   border: none;
   font-size: 1.1em;
-  padding: 2px 25px;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .add-app-link:hover {
-  background-color: #e84a6c;
+  background-color: #ff5a95;
 }
 
 ul {
   list-style: none;
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
 }
 
 ul > a {
   text-decoration: none;
   color: #1c2e5b;
-  width: 50%;
+  width: 100%;
   background-color: #f6e7e7;
   border-radius: 30px;
-  padding: 10px 20px;
-  margin: 15px 0;
+  padding: 15px 20px;
+  margin: 10px 0;
   font-weight: bold;
   text-align: center;
+  display: block;
 }
 
 ul > a:hover {
-  background-color: #4b598e;
-  color: white;
+  background-color: white;
+  color: #0ec9c9;
 }
 
-.new-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.new-body > form,
-.edit-body > form {
-  height: 70%;
-}
-
-textarea,
-select {
-  border: 1px solid rgb(182, 182, 182);
-  border-radius: 10px;
-  padding: 10px;
-}
-
-select {
-  margin-bottom: 10px;
-}
-
+.new-body,
 .edit-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  padding: 40px 20px;
 }
 
+.new-body .content-box,
+.edit-body .content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show-details {
+  background-color: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.show-details p {
+  margin: 15px 0;
+  color: #1c2e5b;
+}
+
+.show-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.show-buttons form {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  max-width: none;
+  width: auto;
+}
+
+.show-buttons a,
+.show-buttons form button {
+  width: 110px;
+  padding: 12px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 30px;
+  background-color: #ff7bac;
+  color: white;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  margin: 0;
+}
+
+.show-buttons a:hover,
+.show-buttons form button:hover {
+  background-color: #ff5a95;
+}

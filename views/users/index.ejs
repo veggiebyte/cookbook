@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,17 +8,21 @@
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <div class="all-apps-body">
-    <div class="all-apps-header">
-      <h1>Our Vegan Baking Community</h1>
+  <div class="inner-header"></div>
+  
+  <div class="all-foods-body">
+    <div class="content-box">
+      <div class="all-foods-header">
+        <h1>Our Vegan Baking Community</h1>
+      </div>
+      <ul>
+        <% users.forEach((communityUser) => { %>
+          <a href="/users/<%= communityUser._id %>">
+            <li><%= communityUser.username %>'s Pantry (<%= communityUser.pantry.length %> items)</li>
+          </a>
+        <% }) %>
+      </ul>
     </div>
-    <ul>
-      <% users.forEach((communityUser) => { %>
-        <a href="/users/<%= communityUser._id %>">
-          <li><%= communityUser.username %>'s Pantry (<%= communityUser.pantry.length %> items)</li>
-        </a>
-      <% }) %>
-    </ul>
   </div>
 </body>
 </html>

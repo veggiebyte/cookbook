@@ -8,18 +8,21 @@
   </head>
   <body>
   <%- include('../partials/_navbar.ejs') %>
+  <div class="inner-header"></div>
   <div class="all-foods-body">
-  <div class="all-foods-header">
-    <h1>My Vegan Baking Pantry</h1>
-    <a class="add-app-link" href="/users/<%=user._id%>/foods/new">Add Ingredient</a>
+    <div class="content-box">
+      <div class="all-foods-header">
+        <h1>My Vegan Baking Pantry</h1>
+        <a class="add-app-link" href="/users/<%=user._id%>/foods/new">Add Ingredient</a>
+      </div>
+      <ul>
+        <% pantry.forEach((food)=>{ %>
+        <a href="/users/<%= user._id %>/foods/<%= food._id %>">
+          <li><%= food.name %> <% if(food.brand) { %>(<%= food.brand %>)<% } %></li>
+        </a>
+        <% }) %>
+      </ul>
+    </div>
   </div>
-  <ul>
-    <% pantry.forEach((food)=>{ %>
-    <a href="/users/<%= user._id %>/foods/<%= food._id %>">
-      <li><%= food.name %> <% if(food.brand) { %>(<%= food.brand %>)<% } %></li>
-    </a>
-    <% }) %>
-  </ul>
-</div>
   </body>
 </html>

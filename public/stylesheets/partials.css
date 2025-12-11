@@ -1,25 +1,62 @@
+nav {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1000;
+}
+
 .navbar {
   display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 5px;
   flex-direction: row;
-  max-width: 100vw;
-  padding: 5px 20px;
-  justify-content: space-between;
-  align-items: center;
 }
 
-#nav-header {
-  color: #ce4866;
-  size: 1em !important;
-  margin: 0;
-}
-
-.authlink {
+.nav-button {
   text-decoration: none;
-  margin: 0 15px;
-  color: #4b598e;
+  padding: 5px 10px;
+  border-radius: 15px;
   font-weight: bold;
+  font-size: 0.75em;
+  background-color: white;
+  color: #0ec9c9;
+  border: 2px solid #0ec9c9;
 }
 
-.authlink:hover {
+.nav-button:hover {
+  background-color: #0ec9c9;
   color: white;
+}
+
+.signout-button {
+  background-color: #0ec9c9 !important;
+  color: white !important;
+}
+
+.signin-button {
+  background-color: white;
+  color: #0ec9c9;
+  border: 2px solid #0ec9c9;
+}
+
+.signup-button {
+  background-color: #0ec9c9;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 3px;
+  }
+  
+  .nav-button {
+    font-size: 0.7em;
+    padding: 4px 8px;
+  }
 }
