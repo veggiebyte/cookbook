@@ -3,17 +3,15 @@
 <nav>
   <% if(user) { %>
   <div class="navbar">
-    <h1 id="nav-header">Skyrockit</h1>
+    <h1 id="nav-header">The Vegan Sprinkle Pantry</h1>
     <div class="nav-links">
-      <a class="authlink" href="/users/<%=user._id%>/applications"
-        >Your Apps</a
-      >
+      <a class="authlink" href="/users/<%=user._id%>/foods">My Pantry</a>
       <a class="authlink" href="/auth/sign-out">Sign Out</a>
     </div>
   </div>
   <% } else { %>
   <div class="navbar">
-    <h1 id="nav-header">Skyrockit</h1>
+    <h1 id="nav-header">The Vegan Sprinkle Pantry</h1>
     <div class="nav-links">
       <a class="authlink" href="/auth/sign-in">Sign In</a>
       <a class="authlink" href="/auth/sign-up">Sign Up</a>
