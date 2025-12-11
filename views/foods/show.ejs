@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/stylesheets/show.css" />
+
+    <title><%= food.name %></title>
+
+  </head>
+
+  <body>
+  <%- include('../partials/_navbar.ejs') %>
+  <div class="show-body">
+    <div class="show-header">
+      <h1><%= food.name %><% if (food.brand) { %> - <%= food.brand %><% } %></h1>
+      <div class="show-sidebar">
+        <div class="show-actions">
+          <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">
+            Edit Item
+          </a>
+          <form
+            action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit">Delete Item</button>
+          </form>
+        </div>
+        <% if (food.category) { %>
+        <p>Category: <%= food.category %></p>
+        <% } %>
+        <% if (food.quantity) { %>
+        <p>Quantity: <%= food.quantity %></p>
+        <% } %>
+      </div>
+    </div>
+    <div class="show-notes-container">
+      <% if (food.notes) { %>
+      <div class="show-notes">
+        <h2>Notes:</h2>
+        <p><%= food.notes %></p>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>
