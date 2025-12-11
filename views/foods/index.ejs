@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>My Vegan Pantry</title>
+  </head>
+  <body>
+  <%- include('../partials/_navbar.ejs') %>
+  <div class="all-foods-body">
+  <div class="all-foods-header">
+    <h1>My Vegan Baking Pantry</h1>
+    <a class="add-app-link" href="/users/<%=user._id%>/foods/new">Add Ingredient</a>
+  </div>
+  <ul>
+    <% pantry.forEach((food)=>{ %>
+    <a href="/users/<%= user._id %>/foods/<%= food._id %>">
+      <li><%= food.name %> <% if(food.brand) { %>(<%= food.brand %>)<% } %></li>
+    </a>
+    <% }) %>
+  </ul>
+</div>
+  </body>
+</html>
